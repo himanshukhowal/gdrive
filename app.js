@@ -629,7 +629,7 @@ function append_search_result_to_list(files) {
         if (item['size'] == undefined) {
             item['size'] = "";
         }
-
+	console.log(item);
         item['modifiedTime'] = utc2delhi(item['modifiedTime']);
         item['size'] = formatFileSize(item['size']);
         if (item['mimeType'] == 'application/vnd.google-apps.folder') {
