@@ -913,7 +913,7 @@ function file_video(path) {
   <div class="card text-center">
   <div class="text-center">
   <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
-	<iframe src="https://drive.google.com/file/d/'+ obj.id +'/preview" width="640" height="480" allow="autoplay"></iframe>
+	<iframe src="https://drive.google.com/file/d/`+ obj.id +`/preview" width="640" height="480" allow="autoplay"></iframe>
   </div>
 	${UI.disable_player ? '<style>.plyr{display:none;}</style>' : ''}
   <script>
