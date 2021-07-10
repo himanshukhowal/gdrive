@@ -908,34 +908,7 @@ function file_video(path) {
 		else {
 		var poster = UI.poster;
 		}
-    var content = `
-  <div class="container text-center"><br>
-  <div class="card text-center">
-  <div class="text-center">
-  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
-	<video id="vplayer" width="100%" height="100%" playsinline controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen']; data-plyr-config="{ "title": "${decodename}"}" data-poster="${poster}" style="--plyr-captions-text-color: #ffffff;--plyr-captions-background: #000000;">
-	  <source src="${url}" type="video/mp4" />
-	  <source src="${url}" type="video/webm" />
-	  <track kind="captions" label="Default" src="${caption}.vtt" srclang="en" />
-    <track kind="captions" label="English" src="${caption}.en.vtt" srclang="en" default />
-    <track kind="captions" label="Hindi" src="${caption}.hi.vtt" srclang="hi" />
-    <track kind="captions" label="Russian" src="${caption}.ru.vtt" srclang="ru" />
-    <track kind="captions" label="Malayalam" src="${caption}.ml.vtt" srclang="ml" />
-    <track kind="captions" label="Korean" src="${caption}.ko.vtt" srclang="ko" />
-    <track kind="captions" label="Japanese" src="${caption}.ja.vtt" srclang="ja" />
-    <track kind="captions" label="Indonesian" src="${caption}.id.vtt" srclang="id" />
-    <track kind="captions" label="German" src="${caption}.de.vtt" srclang="de" />
-    <track kind="captions" label="French" src="${caption}.fr.vtt" srclang="fr" />
-    <track kind="captions" label="Chinese" src="${caption}.zh.vtt" srclang="zh" />
-    <track kind="captions" label="Arabic" src="${caption}.ar.vtt" srclang="ar" />
-	<track kind="captions" label="${UI.custom_srt_lang}" src="${caption}.${UI.custom_srt_lang}.vtt" srclang="${UI.custom_srt_lang}" />
-	</video>
-  </div>
-	${UI.disable_player ? '<style>.plyr{display:none;}</style>' : ''}
-  <script>
-   const player = new Plyr('#vplayer',{ratio: "${UI.plyr_io_video_resolution}"});
-  </script></br>
-${UI.disable_video_download ? `` : `
+    var content = '<iframe src="https://drive.google.com/file/d/' + obj.id + '/preview" width="640" height="480" allow="autoplay"></iframe>';
 <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
