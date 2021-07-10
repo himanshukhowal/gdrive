@@ -707,9 +707,9 @@ function onSearchResultItemClick(a_ele) {
         if (data) {
             var href = `/${cur}:${data}${can_preview ? '?a=view' : ''}`;
             if (href.endsWith("/")) {
-                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F') + 'fileHash=' + a_ele.id;
+                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F');
             } else {
-                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F') + '?a=view';
+                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F') + '?a=view&fileHash=' + a_ele.id';
             }
             title = `Result`;
             $('#SearchModelLabel').html(title);
