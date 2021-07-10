@@ -629,7 +629,7 @@ function append_search_result_to_list(files) {
         if (item['size'] == undefined) {
             item['size'] = "";
         }
-	console.log(item);
+		console.log(i);
         item['modifiedTime'] = utc2delhi(item['modifiedTime']);
         item['size'] = formatFileSize(item['size']);
         if (item['mimeType'] == 'application/vnd.google-apps.folder') {
@@ -707,7 +707,7 @@ function onSearchResultItemClick(a_ele) {
         if (data) {
             var href = `/${cur}:${data}${can_preview ? '?a=view' : ''}`;
             if (href.endsWith("/")) {
-                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F');
+                var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F') + 'fileHash=' + a_ele.id;
             } else {
                 var ehrefurl = href.replace(new RegExp('#', 'g'), '%23').replace(new RegExp('\\?', 'g'), '%3F') + '?a=view';
             }
