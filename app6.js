@@ -908,7 +908,18 @@ function file_video(path) {
 		else {
 		var poster = UI.poster;
 		}
-    var content = '<iframe src="https://drive.google.com/file/d/' + obj.id + '/preview" width="640" height="480" allow="autoplay"></iframe>';
+    var content = `
+  <div class="container text-center"><br>
+  <div class="card text-center">
+  <div class="text-center">
+  <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
+	<iframe src="https://drive.google.com/file/d/'+ obj.id +'/preview" width="640" height="480" allow="autoplay"></iframe>
+  </div>
+	${UI.disable_player ? '<style>.plyr{display:none;}</style>' : ''}
+  <script>
+   const player = new Plyr('#vplayer',{ratio: "${UI.plyr_io_video_resolution}"});
+  </script></br>
+${UI.disable_video_download ? `` : `
 <div class="card-body">
 <div class="input-group mb-4">
   <div class="input-group-prepend">
