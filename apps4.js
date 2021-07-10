@@ -913,9 +913,9 @@ function file_video(path) {
   <div class="card text-center">
   <div class="text-center">
   <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
-	<div style="width: 640px; height: 480px; position: relative;">
+	<div style="width: 100%; height: 480px; position: relative;">
 
-      <iframe src="https://drive.google.com/file/d/`+ obj.id +`/preview" width="640" height="480" frameborder="0" scrolling="no" seamless="" allowfullscreen="true"></iframe>
+      <iframe src="https://drive.google.com/file/d/`+ obj.id +`/preview" width="100%" height="480" frameborder="0" scrolling="no" seamless="" allowfullscreen="true"></iframe>
 
       <div style="width: 80px; height: 80px; position: absolute; opacity: 0; right: 0px; top: 0px;"> </div>
 </div>
