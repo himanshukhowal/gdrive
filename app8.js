@@ -913,12 +913,15 @@ function file_video(path) {
   <div class="card text-center">
   <div class="text-center">
   <div class="${UI.file_view_alert_class}" id="file_details" role="alert">${obj.name}<br>${size}</div>
-	<iframe src="https://drive.google.com/file/d/`+ obj.id +`/preview" width="640" height="480" allow="autoplay"></iframe>
+	<div  style="width: 100%; height: 100%;">
+
+      <iframe src="https://drive.google.com/file/d/`+ obj.id +`/preview"   style="width: 100%; height: 100%;" frameborder="0" scrolling="no" seamless="" allowfullscreen="true"></iframe>
+
+      <div style="width: 80px; height: 80px; position: absolute; opacity: 0; right: 0px; top: 0px;">&nbsp;</div>
+</div>
   </div>
 	${UI.disable_player ? '<style>.plyr{display:none;}</style>' : ''}
-  <script>
-   const player = new Plyr('#vplayer',{ratio: "${UI.plyr_io_video_resolution}"});
-  </script></br>
+  </br>
 ${UI.disable_video_download ? `` : `
 <div class="card-body">
 <div class="input-group mb-4">
