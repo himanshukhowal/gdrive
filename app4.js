@@ -692,6 +692,7 @@ function append_search_result_to_list(files) {
  * @param a_ele Clicked element
  */
 function onSearchResultItemClick(a_ele) {
+	debugger;
     var me = $(a_ele);
     var can_preview = me.hasClass('view');
     var cur = window.current_drive_order;
@@ -740,6 +741,7 @@ function get_file(path, file, callback) {
 // File display ?a=view
 function file(path) {
 	console.log("filePath :: " + path);
+	debugger;
     var name = path.split('/').pop();
     var ext = name.split('.').pop().toLowerCase().replace(`?a=view`, "").toLowerCase();
     $('#content').html(`<div class="d-flex justify-content-center" style="height: 150px"><div class="spinner-border ${UI.loading_spinner_class} m-5" role="status"><span class="sr-only"></span></div></div>`);
