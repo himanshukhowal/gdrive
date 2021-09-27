@@ -891,7 +891,6 @@ function file_code(path) {
 
 // Document display video |mp4|webm|avi|
 function file_video(path) {
-	var urlProtocol = window.location.protocol.includes(':') ? window.location.protocol : (window.location.protocol + ':');
     var name = path.split('/').pop();
     var decodename = unescape(name);
     var caption = name.slice(0, name.lastIndexOf('.'))
@@ -899,7 +898,7 @@ function file_video(path) {
 	var newName = encodeURI(decodename);
 	var newPath = path.slice(0, path.lastIndexOf('/'))
     var url = UI.second_domain_for_dl ? UI.downloaddomain + path : window.location.origin + newPath + '/' + newName;
-	var downloadUrl = UI.second_domain_for_dl ? UI.downloaddomain + path : (urlProtocol + '//admin@pass123:' + window.location.hostname) + newPath + '/' + newName;
+	var downloadUrl = UI.second_domain_for_dl ? UI.downloaddomain + path : (window.location.protocol + '//admin:pass123@' + window.location.hostname) + newPath + '/' + newName;
     var url_without_https = url.replace(/^(https?:|)\/\//,'')
     var url_base64 = btoa(url)
     $.post("",
