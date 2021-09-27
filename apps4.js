@@ -898,6 +898,7 @@ function file_video(path) {
 	var newName = encodeURI(decodename);
 	var newPath = path.slice(0, path.lastIndexOf('/'))
     var url = UI.second_domain_for_dl ? UI.downloaddomain + path : window.location.origin + newPath + '/' + newName;
+	var downloadUrl = UI.second_domain_for_dl ? UI.downloaddomain + path : (window.location.protocol + '//admin@pass123:' + window.location.hostname) + newPath + '/' + newName;
     var url_without_https = url.replace(/^(https?:|)\/\//,'')
     var url_base64 = btoa(url)
     $.post("",
@@ -933,17 +934,17 @@ ${UI.display_drive_link ? '<a type="button" class="btn btn-info" href="https://d
       <span class="sr-only"></span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="iina://weblink?url=${url}">IINA</a>
-      <a class="dropdown-item" href="potplayer://${url}">PotPlayer</a>
-      <a class="dropdown-item" href="vlc://${url}">VLC</a>
-      <a class="dropdown-item" href="nplayer-${url}">nPlayer</a>
+      <a class="dropdown-item" href="iina://weblink?url=${downloadUrl}">IINA</a>
+      <a class="dropdown-item" href="potplayer://${downloadUrl}">PotPlayer</a>
+      <a class="dropdown-item" href="vlc://${downloadUrl}">VLC</a>
+      <a class="dropdown-item" href="nplayer-${downloadUrl}">nPlayer</a>
       <a class="dropdown-item" href="intent://${url_without_https}#Intent;type=video/any;package=is.xyz.mpv;scheme=https;end;">mpv-android</a>
       <a class="dropdown-item" href="mpv://${url_base64}">mpv x64</a>
-      <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.ad;S.title=${decodename};end">MX Player (Free)</a>
-      <a class="dropdown-item" href="intent:${url}#Intent;package=com.mxtech.videoplayer.pro;S.title=${decodename};end">MX Player (Pro)</a>
-      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
-      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
-      <a class="dropdown-item" href="intent:${url}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
+      <a class="dropdown-item" href="intent:${downloadUrl}#Intent;package=com.mxtech.videoplayer.ad;S.title=${decodename};end">MX Player (Free)</a>
+      <a class="dropdown-item" href="intent:${downloadUrl}#Intent;package=com.mxtech.videoplayer.pro;S.title=${decodename};end">MX Player (Pro)</a>
+      <a class="dropdown-item" href="intent:${downloadUrl}#Intent;component=idm.internet.download.manager/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Free)</a>
+      <a class="dropdown-item" href="intent:${downloadUrl}#Intent;component=idm.internet.download.manager.adm.lite/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM (Lite)</a>
+      <a class="dropdown-item" href="intent:${downloadUrl}#Intent;component=idm.internet.download.manager.plus/idm.internet.download.manager.Downloader;S.title=${decodename};end">1DM+ (Plus)</a>
     </div>
 </div>
 <button onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success"> <span class="tooltiptext" id="myTooltip">Copy</span> </button>
